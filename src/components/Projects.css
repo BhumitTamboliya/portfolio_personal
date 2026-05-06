@@ -1,0 +1,278 @@
+.projects-container {
+  max-width: 1600px; /* Expanded for a much larger view */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── Projects Grid ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Force side-by-side */
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+/* ── Card Wrapper ── */
+.project-card-wrapper {
+  perspective: 1000px;
+  display: flex;
+  width: 100%;
+}
+
+.project-card-hover {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  /* Wider aspect ratio for much larger side-by-side view */
+  aspect-ratio: 16 / 10;
+  min-height: 300px;
+  cursor: pointer;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.5s ease,
+              border-color 0.4s ease;
+}
+
+.project-card-hover:hover {
+  transform: translateY(-8px) scale(1.015);
+  border-color: rgba(0, 240, 255, 0.15);
+  box-shadow:
+    0 35px 70px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(0, 240, 255, 0.08),
+    0 0 80px rgba(138, 43, 226, 0.06);
+}
+
+/* ── Image Layer ── */
+.project-image-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.project-image-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fill the whole box */
+  object-position: top;
+  background-color: transparent;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.5s ease;
+}
+
+.project-card-hover:hover .project-image-layer img {
+  transform: scale(1.08); /* Less scale on hover so it doesn't zoom too aggressively */
+  filter: blur(8px) brightness(0.25);
+}
+
+/* ── Details Overlay (hover state) ── */
+.project-details-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.project-card-hover:hover .project-details-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  justify-content: flex-start; /* Changed from center to avoid cutting off tall text */
+  overflow-y: auto;
+  background: rgba(8, 8, 12, 0.85); /* Solid transparent overlay */
+  backdrop-filter: blur(4px);
+}
+
+/* -- All overlay children use transition-based reveal -- */
+.overlay-top,
+.overlay-date,
+.overlay-description,
+.overlay-tech {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.project-card-hover:hover .overlay-top {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.project-card-hover:hover .overlay-date {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+.project-card-hover:hover .overlay-description {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.project-card-hover:hover .overlay-tech {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.25s;
+}
+
+/* -- Overlay Header -- */
+.overlay-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto; /* Pushes content down a bit if it fits, but otherwise lets it flow */
+}
+
+/* Added margin-top: auto inside overlay-content allows shorter content to center, 
+   while longer content scrolls properly */
+.overlay-content > :first-child {
+  margin-top: auto;
+}
+.overlay-content > :last-child {
+  margin-bottom: auto;
+}
+
+.overlay-project-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.overlay-project-links {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.overlay-project-links a {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+}
+
+.overlay-project-links a:hover {
+  background: rgba(0, 240, 255, 0.15);
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
+  transform: scale(1.1);
+}
+
+/* -- Overlay Date -- */
+.overlay-date {
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+  color: var(--accent-blue);
+}
+
+/* -- Overlay Description -- */
+.overlay-description {
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+/* -- Overlay Tech Stack -- */
+.overlay-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin-top: 4px;
+}
+
+.overlay-tech li {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  color: var(--accent-blue);
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.18);
+  padding: 4px 12px;
+  border-radius: 50px;
+  transition: all 0.25s ease;
+}
+
+.overlay-tech li:hover {
+  background: rgba(0, 240, 255, 0.2);
+  border-color: rgba(0, 240, 255, 0.4);
+  color: #fff;
+}
+
+/* ── Custom Scrollbar for Overlay ── */
+.overlay-content::-webkit-scrollbar {
+  width: 4px;
+}
+.overlay-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .projects-container {
+    padding: 0 15px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .project-card-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card-hover {
+    aspect-ratio: auto;
+    min-height: 350px;
+  }
+
+  .overlay-project-title {
+    font-size: 1.15rem;
+  }
+
+  .overlay-description {
+    font-size: 0.85rem;
+  }
+
+  .overlay-content {
+    padding: 20px;
+    gap: 10px;
+  }
+}

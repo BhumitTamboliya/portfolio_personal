@@ -1,0 +1,59 @@
+.scroll-decorations-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Crucial: allows clicking elements underneath */
+  z-index: 1; /* Below content, above base background */
+  overflow: hidden;
+}
+
+/* Scroll Progress Bar entirely fixed to the top */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-main);
+  transform-origin: 0% 50%;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+}
+
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  mix-blend-mode: screen;
+  opacity: 0.4;
+  will-change: transform;
+}
+
+/* Distinct glowing orbs */
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent-blue);
+  top: -100px;
+  left: -100px;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: var(--accent-purple);
+  top: 30%;
+  right: -150px;
+  opacity: 0.3;
+}
+
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  background: rgba(0, 240, 255, 0.4);
+  bottom: 10%;
+  left: 20%;
+}

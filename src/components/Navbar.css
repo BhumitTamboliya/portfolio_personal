@@ -1,0 +1,160 @@
+/* Logo Styles */
+.nav-logo {
+  position: fixed;
+  top: 30px;
+  left: 5%;
+  z-index: 1000;
+}
+
+.nav-logo a {
+  text-decoration: none;
+  font-size: 2rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.nav-logo a:hover {
+  transform: scale(1.05);
+}
+
+/* Floating Pill Navbar Styles */
+.floating-nav-wrapper {
+  position: fixed;
+  bottom: 40px; /* Floating at the bottom like modern app navbars */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: auto;
+}
+
+@media (min-width: 1024px) {
+  .floating-nav-wrapper {
+    top: 30px; /* Move to top for desktop */
+    bottom: auto;
+  }
+}
+
+.floating-nav {
+  padding: 8px;
+  border-radius: 50px;
+  background: rgba(15, 17, 21, 0.85); /* Deep dark glass */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.floating-nav-list {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.floating-nav-item {
+  position: relative;
+  display: flex;
+}
+
+.floating-nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 40px;
+  color: #8b949e;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  z-index: 2; /* Ensure content is above pill */
+}
+
+.floating-nav-link:hover {
+  color: #e6edf3;
+}
+
+.floating-nav-link.active {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.nav-icon {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Framer Motion Active Elements */
+.active-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(59, 130, 246, 0.15); /* Subtle blue glow */
+  border-radius: 40px;
+  z-index: -1;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.active-underline {
+  position: absolute;
+  bottom: 0px; 
+  left: 20%;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
+  z-index: -1;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .nav-logo {
+    display: none; 
+  }
+  
+  .floating-nav-wrapper {
+    width: 98%; 
+    max-width: 400px;
+    bottom: 20px;
+  }
+  
+  .floating-nav {
+    padding: 6px;
+  }
+  
+  .nav-text {
+    display: none; 
+  }
+  
+  .floating-nav-list {
+    justify-content: space-between;
+    gap: 4px; /* Reduced gap */
+    width: 100%;
+  }
+
+  .floating-nav-link {
+    padding: 10px 8px; /* Severely reduced horizontal padding to guarantee fit */
+    gap: 0;
+  }
+  
+  .nav-icon {
+    font-size: 1.25rem; /* Slightly smaller */
+  }
+  
+  .active-underline {
+    left: 15%;
+    width: 70%;
+  }
+}
