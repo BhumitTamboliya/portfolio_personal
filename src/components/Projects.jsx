@@ -22,7 +22,7 @@ const projects = [
     date: "April 2026",
     description: "Full-stack AI-powered code review platform that detects bugs, security vulnerabilities, and quality issues using Groq AI (Llama 3.3 70B). Includes side-by-side file comparison and code quality scoring.",
     tech: ["React.js", "Node.js", "MongoDB", "Groq AI", "JWT", "REST API"],
-    github: "https://github.com/BhumitTamboliya/Rentigo",
+    github: "https://github.com/BhumitTamboliya/Codesense-Ai",
     live: "#",
     image: "/codesense_ai_app.png"
   }
