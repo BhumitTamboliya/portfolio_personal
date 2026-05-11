@@ -13,8 +13,8 @@ const projects = [
     date: "March 2026",
     description: "Production-ready full-stack women safety platform with real-time SOS alert functionality and live GPS location sharing. Features bidirectional communication between users, volunteers, and admin.",
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Socket.io", "Leaflet Maps"],
-    github: "https://github.com/BhumitTamboliya",
-    live: "#",
+    github: "https://github.com/BhumitTamboliya/woman-safety",
+    live: "https://woman-safety-six.vercel.app",
     image: "/woman_safety_app.png"
   },
   {
