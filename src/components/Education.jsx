@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const educationData = [
   {
     id: 1,
-    date: "Aug 2023 - Present",
+    date: "Aug 2023 - May 2026",
     degree: "Bachelor of Computer Application (BCA)",
     institution: "Lovely Professional University",
     details: "Phagwara, Punjab. Current CGPA: 6.43",
