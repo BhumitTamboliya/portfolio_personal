@@ -85,11 +85,11 @@ const Hero = () => {
             />
           </div>
           <p className="hero-description">
-            Results-driven Full Stack Web Developer with hands-on experience building and deploying production-ready web applications. Passionate about clean code and user-focused digital solutions.
+            I build and deploy production-ready web applications — from AI-powered tools to real-time platforms. Available for full-time roles and freelance/contract projects.
           </p>
           <div className="hero-cta">
             <a href="#projects" className="btn btn-primary">View Work</a>
-            <a href="#contact" className="btn btn-outline" style={{marginLeft: '1rem'}}>Contact Me</a>
+            <a href="#contact" className="btn btn-outline" style={{marginLeft: '1rem'}}>Let's Work Together</a>
           </div>
         </div>
 

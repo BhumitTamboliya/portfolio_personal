@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
+import Services from './components/Services';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
@@ -59,6 +60,7 @@ function App() {
       <main style={{ position: 'relative', zIndex: 10 }}>
         <Hero />
         <About />
+        <Services />
         <Skills />
         <Education />
         <Experience />

@@ -73,8 +73,8 @@ const Contact = () => {
               Let's <span className="text-cyan">Connect</span>
             </h3>
             <p className="connect-desc">
-              I'm currently looking for new opportunities. Whether you have a
-              question or just want to say hi, I'll try my best to get back to you!
+              Open to full-time roles and freelance/contract projects. Have an
+              opportunity or an idea you want to build? Let's talk.
             </p>
 
             <ul className="contact-list">

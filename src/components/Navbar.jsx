@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { HiHome, HiUser, HiAcademicCap, HiLightningBolt, HiCode, HiMail, HiBriefcase } from 'react-icons/hi';
+import { HiHome, HiUser, HiAcademicCap, HiLightningBolt, HiCode, HiMail, HiBriefcase, HiSparkles } from 'react-icons/hi';
 import './Navbar.css';
 
 const navLinks = [
   { name: 'Home', href: '#home', icon: HiHome },
   { name: 'About', href: '#about', icon: HiUser },
+  { name: 'Services', href: '#services', icon: HiSparkles },
   { name: 'Skills', href: '#skills', icon: HiLightningBolt },
   { name: 'Education', href: '#education', icon: HiAcademicCap },
   { name: 'Work Experience', href: '#experience', icon: HiBriefcase },
